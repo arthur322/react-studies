@@ -1,0 +1,3 @@
+[submodule "gatsby"]
+	path = gatsby
+	url = /home/atur/dev/react-studies/hello-gatsby
