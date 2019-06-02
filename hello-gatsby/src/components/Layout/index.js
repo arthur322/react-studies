@@ -1,25 +1,18 @@
 import React from "react"
-
 import { Link, graphql, useStaticQuery } from "gatsby"
 
-const ListLink = props => (
-  <li style={{ display: "inline-block", marginRight: "1rem" }}>
-    <Link to={props.to}>{props.children}</Link>
-  </li>
-)
+import ListLink from "./ListLink"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-          }
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
         }
       }
-    `
-  )
+    }
+  `)
 
   return (
     <header
@@ -30,6 +23,7 @@ const Layout = ({ children }) => {
       </h3>
       <ul style={{ listStyle: "none", float: "right" }}>
         <ListLink to="/">Principal</ListLink>
+        <ListLink to="/blog">Blog</ListLink>
         <ListLink to="/about">Sobre</ListLink>
       </ul>
       {children}
