@@ -9,7 +9,7 @@ import {
 
 const Main = () => {
   const [login, setLogin] = useState({ email: '', password: '' });
-  const user = useSelector(({users}) => users);
+  const user = useSelector(({ users }) => users);
   const dispatch = useDispatch();
 
   const handleLogin = () => {
