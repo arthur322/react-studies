@@ -50,3 +50,20 @@ test('increment button click will add to counter', () => {
   const counter = findElement(wrapper, 'counter')
   expect(counter.text()).toContain(initialCount + 1)
 })
+
+test('renders decrement counter', () => {
+  const wrapper = setup()
+  const button = findElement(wrapper, 'decrement-button')
+  expect(button.length).toBe(1)
+})
+
+test('decrement button click will decrease counter', () => {
+  const initialCount = 6
+  const wrapper = setup(null, { counter: initialCount })
+
+  const button = findElement(wrapper, 'decrement-button')
+  button.simulate('click')
+
+  const counter = findElement(wrapper, 'counter')
+  expect(counter.text()).toContain(initialCount - 1)
+})
