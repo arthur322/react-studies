@@ -30,7 +30,7 @@ test('renders app counter', () => {
 
 test('renders the increment button', () => {
   const wrapper = setup()
-  const button = findElement(wrapper, 'button')
+  const button = findElement(wrapper, 'increment-button')
   expect(button.length).toBe(1)
 })
 
@@ -40,11 +40,11 @@ test('counter starts at zero', () => {
   expect(initialState).toBe(0)
 })
 
-test('button click increment counter', () => {
+test('increment button click will add to counter', () => {
   const initialCount = 4
   const wrapper = setup(null, { counter: initialCount })
 
-  const button = findElement(wrapper, 'button')
+  const button = findElement(wrapper, 'increment-button')
   button.simulate('click')
 
   const counter = findElement(wrapper, 'counter')

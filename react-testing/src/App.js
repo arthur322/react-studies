@@ -18,7 +18,7 @@ class App extends Component {
       <div className="App" data-test="app">
         <h1>Hello from app component!</h1>
         <h2 data-test="counter">The counter is on {counter}</h2>
-        <button data-test="button" onClick={this.handleIncrement}>
+        <button data-test="increment-button" onClick={this.handleIncrement}>
           Increment
         </button>
       </div>
