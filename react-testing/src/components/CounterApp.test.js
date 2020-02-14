@@ -1,12 +1,12 @@
 import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
-import App from './App'
+import CounterApp from './CounterApp'
 
 Enzyme.configure({ adapter: new EnzymeAdapter() })
 
 const setup = (props, state) => {
-  const wrapper = shallow(<App {...props} />)
+  const wrapper = shallow(<CounterApp {...props} />)
   if (state) wrapper.setState(state)
 
   return wrapper
