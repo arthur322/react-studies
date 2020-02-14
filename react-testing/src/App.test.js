@@ -67,3 +67,30 @@ test('decrement button click will decrease counter', () => {
   const counter = findElement(wrapper, 'counter')
   expect(counter.text()).toContain(initialCount - 1)
 })
+
+test('counter cant go below zero', () => {
+  const wrapper = setup()
+  const button = findElement(wrapper, 'decrement-button')
+  button.simulate('click')
+
+  const counter = findElement(wrapper, 'counter')
+  expect(counter.text()).toContain(0)
+})
+
+test('display error message if counter tries to go below zero', () => {
+  const wrapper = setup()
+  const button = findElement(wrapper, 'decrement-button')
+  button.simulate('click')
+
+  const errorMessage = findElement(wrapper, 'error-message')
+  expect(errorMessage.length).toBe(1)
+})
+
+test('clear error message if increment button is pressed', () => {
+  const wrapper = setup(null, { showError: true })
+  const button = findElement(wrapper, 'increment-button')
+  button.simulate('click')
+
+  const errorMessage = findElement(wrapper, 'error-message')
+  expect(errorMessage.length).toBe(0)
+})

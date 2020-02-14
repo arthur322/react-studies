@@ -4,20 +4,26 @@ import './App.css'
 class App extends Component {
   state = {
     counter: 0,
+    showError: false,
   }
 
   handleIncrement = () => {
     const { counter } = this.state
-    this.setState({ counter: counter + 1 })
+    this.setState({ counter: counter + 1, showError: false })
   }
 
   handleDecrement = () => {
     const { counter } = this.state
+
+    if (counter === 0) {
+      this.setState({ showError: true })
+      return
+    }
     this.setState({ counter: counter - 1 })
   }
 
   render() {
-    const { counter } = this.state
+    const { counter, showError } = this.state
 
     return (
       <div className="App" data-test="app">
@@ -29,6 +35,9 @@ class App extends Component {
         <button data-test="decrement-button" onClick={this.handleDecrement}>
           Decrement
         </button>
+        {showError && (
+          <h3 data-test="error-message">The counter can't go below zero!</h3>
+        )}
       </div>
     )
   }
