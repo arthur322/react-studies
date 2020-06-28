@@ -1,14 +1,11 @@
 import React from 'react';
-import { Counter } from 'components';
+import './styles/global.scss';
 
 function App() {
   return (
-    <>
-      <div className="App">
-        <h1>Hello! :)</h1>
-        <Counter />
-      </div>
-    </>
+    <div className="App">
+      <h1>Hello! :)</h1>
+    </div>
   );
 }
 
